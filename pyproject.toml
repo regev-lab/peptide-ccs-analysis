@@ -1,0 +1,46 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "peptide_ccs_analysis"
+version = "0.0.1"
+description = "Analysis code and models for investigating collisional cross-section (CCS) bimodality and absolute CCS in peptides."
+authors = [
+  { name = "Allyn Muzhi Xu" },
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License"
+]
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "pandas",
+    "pyarrow",
+    "pygam==0.9.1",
+    "scipy",
+    "seaborn",
+]
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+] 
+
+[tool.ruff]
+line-length = 99
+src = ["peptide_ccs_analysis"]
+include = ["pyproject.toml", "peptide_ccs_analysis/**/*.py"]
+
+[tool.ruff.lint]
+extend-select = ["I"]  # Add import sorting
+
+[tool.ruff.lint.isort]
+known-first-party = ["peptide_ccs_analysis"]
+force-sort-within-sections = true
+
